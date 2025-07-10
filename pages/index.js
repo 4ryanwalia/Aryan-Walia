@@ -649,7 +649,7 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <p className="text-lg leading-relaxed text-gray-300">
-                    I'm <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent font-semibold">Aryan Walia</span> — a forward-thinking developer with expertise in <span className="text-cyan-400 font-semibold">AI, Machine Learning, and Cybersecurity</span>. Currently pursuing my MCA at NMIMS, I specialize in creating intelligent, secure, and user-centric applications.
+                    I&apos;m <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent font-semibold">Aryan Walia</span> — a forward-thinking developer with expertise in <span className="text-cyan-400 font-semibold">AI, Machine Learning, and Cybersecurity</span>. Currently pursuing my MCA at NMIMS, I specialize in creating intelligent, secure, and user-centric applications.
                   </p>
                   <p className="text-lg leading-relaxed text-gray-300">
                     My technical arsenal includes <span className="text-purple-400 font-semibold">Java, Kotlin, React, Firebase</span>, and advanced database systems. I focus on building practical solutions that leverage cutting-edge AI technologies while maintaining robust security protocols.
@@ -667,7 +667,7 @@ export default function Home() {
                   </div>
                   <div className="bg-[#0a0a0a] p-4 rounded-xl border border-[#333]">
                     <h3 className="text-blue-400 font-semibold mb-2">🔐 Mission</h3>
-                    <p className="text-gray-300 text-sm">Building secure, intelligent technology for tomorrow's challenges</p>
+                    <p className="text-gray-300 text-sm">Building secure, intelligent technology for tomorrow&apos;s challenges</p>
                   </div>
                 </div>
               </div>
