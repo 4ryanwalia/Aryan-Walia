@@ -35,7 +35,7 @@ export default function Resume() {
           </Link>
           
           <a 
-            href="/AryanWaliaResume.pdf" 
+            href="/Aryan-Walia/AryanWaliaResume.pdf" 
             download
             className="text-sm text-gray-300 hover:text-white transition-colors"
           >
@@ -47,7 +47,7 @@ export default function Resume() {
           {/* PDF Viewer */}
           <div className="w-full h-[90vh] rounded-lg overflow-hidden">
             <iframe
-              src="/AryanWaliaResume.pdf"
+              src="/Aryan-Walia/AryanWaliaResume.pdf"
               className="w-full h-full border-0"
               title="Aryan Walia Resume"
             />
