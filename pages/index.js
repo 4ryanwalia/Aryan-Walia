@@ -64,80 +64,17 @@ export default function Home() {
       tech: ['Java', 'Spring Boot', 'Spring Security', 'MySQL', 'JWT', 'HTML', 'CSS', 'JavaScript', 'Postman'],
       image: 'https://private-user-images.githubusercontent.com/174216567/433117573-210f6549-84d1-4992-95a4-16ef64ad7821.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTIxMTUwMjksIm5iZiI6MTc1MjExNDcyOSwicGF0aCI6Ii8xNzQyMTY1NjcvNDMzMTE3NTczLTIxMGY2NTQ5LTg0ZDEtNDk5Mi05NWE0LTE2ZWY2NGFkNzgyMS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNzEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDcxMFQwMjMyMDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kZWIzMzAxOTBiMGNjNWIyMmVhYzVjNGQ3MTNiMDllMmM0NjMwZTAwYTNmNzk5NjcyYzljODhhNjUyZDNjMWU4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2uErFBiaNcSP6snjQA1dWCp3IABXp8hDkcdylJLhwIc',
       github: 'https://github.com/4ryanwalia/WhisperDesk'
-    },
-    {
-      title: 'WakeyWakey – Smart Alarm App',
-      description: `WakeyWakey is a smart Android alarm app that requires users to solve a math challenge to dismiss the alarm, ensuring you actually wake up! Features include one-time/repeating alarms, full-screen lock, power resilience, custom ringtones, and more.`,
-      features: [
-        'Math Challenge Alarm Dismissal: Solve a random math problem to stop the alarm',
-        'Set One-Time or Repeating Alarms',
-        'Full-Screen Alarm Lock (over lock screen)',
-        'Power-Resilient: Survives device restarts',
-        'Foreground Service & Wake Lock',
-        'Custom Ringtone & Vibration',
-        'Auto-Dismiss Timeout (configurable)'
-      ],
-      tech: ['Android', 'Java', 'AlarmManager', 'Room DB', 'ForegroundService', 'Firebase', 'Cloudinary'],
-      image: '/logo.png',
-      github: 'https://github.com/4ryanwalia/wakey-wakey'
-    },
-    {
-      title: 'Zepto Clone – E-Commerce Android App',
-      description: `A modern, feature-rich e-commerce app for small shop owners, inspired by Zepto. Provides seamless product browsing, cart, order history, wallet, and more. Integrates Firebase for real-time sync and Cloudinary for image storage.`,
-      features: [
-        'User Authentication (Firebase)',
-        'Product Browsing & Search',
-        'Cart System with Persistence',
-        'Checkout & Order Confirmation',
-        'Order History & Account Management',
-        'Cloudinary Image Storage',
-        'Dark UI Theme',
-        'Wallet Top-up: add500 / add1000',
-        'Discount Code: GET10 for 10% off'
-      ],
-      tech: ['Android', 'Java', 'XML', 'Firebase', 'Firestore', 'Realtime DB', 'Cloudinary', 'Git', 'GitHub'],
-      image: '/logo1.png',
-      github: '#' // Add your repo link here if available
     }
+    // Add more projects here
   ];
 
-  const handleContactSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setContactStatus(null);
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: contactForm.email, message: contactForm.message })
-      });
-      if (res.ok) {
-        setContactStatus('success');
-        setContactForm({ email: '', message: '' });
-      } else {
-        setContactStatus('error');
-      }
-    } catch {
-      setContactStatus('error');
-    }
-    setIsSubmitting(false);
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setContactForm(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const typewriterText = useTypewriter([
-    '> Building the future...',
-    '> Code. Create. Innovate.',
-    '> Security First.',
-    '> AI-Powered Solutions.',
-    '> Next-Gen Development.'
-  ], 40, 20, true);
+const typewriterText = useTypewriter([
+  '> Building the future...',
+  '> Code. Create. Innovate.',
+  '> Security First.',
+  '> AI-Powered Solutions.',
+  '> Next-Gen Development.'
+], 40, 20, true);
 
   useEffect(() => {
     const canvas = document.getElementById('matrix-canvas');
@@ -175,11 +112,15 @@ export default function Home() {
 
   // Ultra Advanced cursor trail effect with multiple elements
   useEffect(() => {
-    const cursorTrail = document.getElementById('cursor-trail');
-    const cursorTrail2 = document.getElementById('cursor-trail-2');
-    const cursorTrail3 = document.getElementById('cursor-trail-3');
-    const cursorTrail4 = document.getElementById('cursor-trail-4');
-    
+    let cursorTrail, cursorTrail2, cursorTrail3, cursorTrail4;
+    try {
+      cursorTrail = document.getElementById('cursor-trail');
+      cursorTrail2 = document.getElementById('cursor-trail-2');
+      cursorTrail3 = document.getElementById('cursor-trail-3');
+      cursorTrail4 = document.getElementById('cursor-trail-4');
+    } catch (e) {
+      return;
+    }
     if (!cursorTrail || !cursorTrail2 || !cursorTrail3 || !cursorTrail4) return;
 
     const handleMouseMove = (e) => {
@@ -204,19 +145,27 @@ export default function Home() {
       cursorTrail4.style.top = y - 6 + 'px';
       
       // Add magnetic effect to interactive elements
-      const interactiveElements = document.querySelectorAll('a, button, [data-tilt]');
+      let interactiveElements;
+      try {
+        interactiveElements = document.querySelectorAll('a, button, [data-tilt]');
+      } catch (e) {
+        interactiveElements = [];
+      }
       interactiveElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const distance = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
-        
-        if (distance < 100) {
-          const angle = Math.atan2(y - centerY, x - centerX);
-          const force = (100 - distance) / 100;
-          el.style.transform = `translate(${Math.cos(angle) * force * 5}px, ${Math.sin(angle) * force * 5}px)`;
-        } else {
-          el.style.transform = 'translate(0, 0)';
+        try {
+          const rect = el.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const distance = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
+          if (distance < 100) {
+            const angle = Math.atan2(y - centerY, x - centerX);
+            const force = (100 - distance) / 100;
+            el.style.transform = `translate(${Math.cos(angle) * force * 5}px, ${Math.sin(angle) * force * 5}px)`;
+          } else {
+            el.style.transform = 'translate(0, 0)';
+          }
+        } catch (e) {
+          // Ignore errors for elements that may not be visible
         }
       });
     };
@@ -233,12 +182,20 @@ export default function Home() {
       
       // Parallax effect for background elements
       const scrolled = scrollPosition / window.innerHeight;
-      const backgroundElements = document.querySelectorAll('.animate-holographic-matrix');
-      
+      let backgroundElements;
+      try {
+        backgroundElements = document.querySelectorAll('.animate-holographic-matrix');
+      } catch (e) {
+        backgroundElements = [];
+      }
       backgroundElements.forEach((el, index) => {
-        const speed = (index + 1) * 0.5;
-        const yPos = scrolled * speed * 100;
-        el.style.transform = `translateY(${yPos}px) rotate(${45 + index * 15 + scrolled * 10}deg)`;
+        try {
+          const speed = (index + 1) * 0.5;
+          const yPos = scrolled * speed * 100;
+          el.style.transform = `translateY(${yPos}px) rotate(${45 + index * 15 + scrolled * 10}deg)`;
+        } catch (e) {
+          // Ignore errors for elements that may not be visible
+        }
       });
       
       // Determine current section
@@ -260,10 +217,19 @@ export default function Home() {
       const x = (clientX / innerWidth - 0.5) * 20;
       const y = (clientY / innerHeight - 0.5) * 20;
       
-      const holographicElements = document.querySelectorAll('.animate-hologram');
+      let holographicElements;
+      try {
+        holographicElements = document.querySelectorAll('.animate-hologram');
+      } catch (e) {
+        holographicElements = [];
+      }
       holographicElements.forEach((el, index) => {
-        const speed = (index + 1) * 0.5;
-        el.style.transform = `translate(${x * speed}px, ${y * speed}px) rotate(${45 + index * 15}deg)`;
+        try {
+          const speed = (index + 1) * 0.5;
+          el.style.transform = `translate(${x * speed}px, ${y * speed}px) rotate(${45 + index * 15}deg)`;
+        } catch (e) {
+          // Ignore errors for elements that may not be visible
+        }
       });
     };
 
@@ -320,8 +286,19 @@ export default function Home() {
       });
     }, observerOptions);
 
-    const elements = document.querySelectorAll('.scroll-reveal');
-    elements.forEach(el => observer.observe(el));
+    let elements;
+    try {
+      elements = document.querySelectorAll('.scroll-reveal');
+    } catch (e) {
+      elements = [];
+    }
+    elements.forEach(el => {
+      try {
+        observer.observe(el);
+      } catch (e) {
+        // Ignore errors for elements that may not be visible
+      }
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -963,7 +940,7 @@ export default function Home() {
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.6, delay: index * 0.2 + 0.8 }}
                       >
-                        {project.github} (
+                        {project.github && project.github !== '#' && (
                           <motion.a
                             href={project.github}
                             target="_blank"
@@ -989,29 +966,6 @@ export default function Home() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </motion.svg>
                           </motion.a>
-                        ) : (
-                          <motion.button 
-                            className="bg-gradient-to-r from-[#363636] to-[#2a2a2a] hover:from-[#555] hover:to-[#444] text-white font-medium px-6 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center gap-2"
-                            whileHover={{ 
-                              scale: 1.05, 
-                              y: -2,
-                              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)"
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <span>View Project</span>
-                            <motion.svg 
-                              className="w-4 h-4" 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24"
-                              initial={{ x: 0 }}
-                              whileHover={{ x: 3 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </motion.svg>
-                          </motion.button>
                         )}
                       </motion.div>
                     </div>
